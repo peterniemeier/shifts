@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     user = User.find_by_credentials(params[:user][:user_name], params[:user][:password])
     if user
       login(user)
-      redirect_to shifts_url
+      redirect_to new_session_url
     else
       render :json => ["Sorry, invalid credentials"], status: 401
 
