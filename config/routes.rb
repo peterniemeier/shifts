@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resource :session, only: [:create, :new, :destroy]
   resources :shifts, only: [:create, :new, :update, :index, :destroy]
   root to: "sessions#new"
+
+  match '*path', to: redirect('/session/new'), via: :all
 end
